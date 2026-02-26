@@ -61,7 +61,7 @@ if st.session_state.current_question == 1:
         else:
             st.error("❌ ざんねん！")
             st.write("「うわあ！ バグが なおらない…！ もういちど 計算（けいさん）してみて！」")
-            if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジ", key="retry1"):
+            if st.button("もう いっかい チャレンジ", key="retry1"):
                 st.session_state.answered = False
                 st.rerun()
 
@@ -87,7 +87,7 @@ elif st.session_state.current_question == 2:
             st.success("✨ せいかい（正解）！")
             st.balloons()
             st.image("assets/pickaxe_fixed.png", width=100, caption="そばかすが なおった！")
-            st.write("「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」")
+            st.markdown("""「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」""", unsafe_allow_html=True)
             st.session_state.correct_count += 1
             
             if st.button("次の もんだいへ →", key="next2"):
@@ -96,8 +96,8 @@ elif st.session_state.current_question == 2:
                 st.rerun()
         else:
             st.error("❌ ざんねん！")
-            st.write("「もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジしてね！」")
-            if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジ", key="retry2"):
+            st.markdown("""「もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジしてね！」""", unsafe_allow_html=True)
+            if st.button("もう いっかい チャレンジ", key="retry2"):
                 st.session_state.answered = False
                 st.rerun()
 
@@ -132,7 +132,7 @@ elif st.session_state.current_question == 3:
         else:
             st.error("❌ ざんねん！")
             st.write("「モンスターが まだ いるよ…もう あとすこし！」")
-            if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジ", key="retry3"):
+            if st.button("もう いっかい チャレンジ", key="retry3"):
                 st.session_state.answered = False
                 st.rerun()
 
@@ -167,14 +167,14 @@ elif st.session_state.current_question == 4:
             st.success(f"🎉 <ruby>完成<rt>かんせい</rt></ruby>！")
             st.write(f"\n**{st.session_state.correct_count}/4** もん、 せいかい！")
             
-            if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> プレイする"):
+            if st.button("もう いっかい プレイする"):
                 st.session_state.current_question = 1
                 st.session_state.correct_count = 0
                 st.session_state.answered = False
                 st.rerun()
         else:
             st.error("❌ ざんねん！")
-            st.write("「もう <ruby>一回<rt>いっかい</rt></ruby> <ruby>頑張<rt>がんば</rt></ruby>ってみてね！」")
-            if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジ", key="retry4"):
+            st.markdown("""「もう <ruby>一回<rt>いっかい</rt></ruby> <ruby>頑張<rt>がんば</rt></ruby>ってみてね！」""", unsafe_allow_html=True)
+            if st.button("もう いっかい チャレンジ", key="retry4"):
                 st.session_state.answered = False
                 st.rerun()
