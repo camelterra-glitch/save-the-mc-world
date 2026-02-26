@@ -9,6 +9,8 @@ if "answered" not in st.session_state:
     st.session_state.answered = False
 if "is_correct" not in st.session_state:
     st.session_state.is_correct = False
+if "counted" not in st.session_state:
+    st.session_state.counted = False
 
 # タイトル
 st.title("マイクラ×さんすう：バグから世界をすくえ！")
@@ -45,19 +47,23 @@ if st.session_state.current_question == 1:
     if st.button("これで けってい！", key="btn1"):
         st.session_state.answered = True
         st.session_state.is_correct = (answer == "23ぴき")
+        if st.session_state.is_correct and not st.session_state.counted:
+            st.session_state.correct_count += 1
+            st.session_state.counted = True
     
     if st.session_state.answered:
         if st.session_state.is_correct:
-            st.success("✨ せいかい（正解）！")
-            st.balloons()
-            st.image("assets/pickaxe_fixed.png", width=100, caption="ピカピカに なおった！")
-            st.write("「やった！『石のつるはし』が 元どおりになったよ！ありがとう！」")
-            st.session_state.correct_count += 1
-            
-            if st.button("次の もんだいへ →", key="next1"):
-                st.session_state.current_question += 1
-                st.session_state.answered = False
-                st.rerun()
+                st.success("✨ せいかい（正解）！")
+                st.balloons()
+                st.image("assets/pickaxe_fixed.png", width=100, caption="ピカピカに なおった！")
+                st.write("「やった！『石のつるはし』が 元どおりになったよ！ありがとう！」")
+                
+                if st.button("次の もんだいへ →", key="next1"):
+                    # increment score when moving forward
+                    st.session_state.correct_count += 1
+                    st.session_state.current_question += 1
+                    st.session_state.answered = False
+                    st.rerun()
         else:
             st.error("❌ ざんねん！")
             st.write("「うわあ！ バグが なおらない…！ もういちど 計算（けいさん）してみて！」")
@@ -81,19 +87,22 @@ elif st.session_state.current_question == 2:
     if st.button("これで けってい！", key="btn2"):
         st.session_state.answered = True
         st.session_state.is_correct = (answer == "11こ")
+        if st.session_state.is_correct and not st.session_state.counted:
+            st.session_state.correct_count += 1
+            st.session_state.counted = True
     
     if st.session_state.answered:
         if st.session_state.is_correct:
-            st.success("✨ せいかい（正解）！")
-            st.balloons()
-            st.image("assets/pickaxe_fixed.png", width=100, caption="そばかすが なおった！")
-            st.markdown("""「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」""", unsafe_allow_html=True)
-            st.session_state.correct_count += 1
-            
-            if st.button("次の もんだいへ →", key="next2"):
-                st.session_state.current_question += 1
-                st.session_state.answered = False
-                st.rerun()
+                st.success("✨ せいかい（正解）！")
+                st.balloons()
+                st.image("assets/pickaxe_fixed.png", width=100, caption="そばかすが なおった！")
+                st.write("「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」")
+                
+                if st.button("次の もんだいへ →", key="next2"):
+                    st.session_state.correct_count += 1
+                    st.session_state.current_question += 1
+                    st.session_state.answered = False
+                    st.rerun()
         else:
             st.error("❌ ざんねん！")
             st.markdown("""「もう <ruby>一回<rt>いっかい</rt></ruby> チャレンジしてね！」""", unsafe_allow_html=True)
@@ -116,19 +125,22 @@ elif st.session_state.current_question == 3:
     if st.button("これで けってい！", key="btn3"):
         st.session_state.answered = True
         st.session_state.is_correct = (answer == "15ぴき")
+        if st.session_state.is_correct and not st.session_state.counted:
+            st.session_state.correct_count += 1
+            st.session_state.counted = True
     
     if st.session_state.answered:
         if st.session_state.is_correct:
-            st.success("✨ せいかい（正解）！")
-            st.balloons()
-            st.image("assets/pickaxe_fixed.png", width=100, caption="つるはしが さらに つよくなった！")
-            st.write("「すばらしい！つるはしが ダイヤモンドに なったよ！」")
-            st.session_state.correct_count += 1
-            
-            if st.button("次の もんだいへ →", key="next3"):
-                st.session_state.current_question += 1
-                st.session_state.answered = False
-                st.rerun()
+                st.success("✨ せいかい（正解）！")
+                st.balloons()
+                st.image("assets/pickaxe_fixed.png", width=100, caption="つるはしが さらに つよくなった！")
+                st.write("「すばらしい！つるはしが ダイヤモンドに なったよ！」")
+                
+                if st.button("次の もんだいへ →", key="next3"):
+                    st.session_state.correct_count += 1
+                    st.session_state.current_question += 1
+                    st.session_state.answered = False
+                    st.rerun()
         else:
             st.error("❌ ざんねん！")
             st.write("「モンスターが まだ いるよ…もう あとすこし！」")
@@ -152,6 +164,9 @@ elif st.session_state.current_question == 4:
     if st.button("これで けってい！", key="btn4"):
         st.session_state.answered = True
         st.session_state.is_correct = (answer == "23こ")
+        if st.session_state.is_correct and not st.session_state.counted:
+            st.session_state.correct_count += 1
+            st.session_state.counted = True
     
     if st.session_state.answered:
         if st.session_state.is_correct:
@@ -160,17 +175,17 @@ elif st.session_state.current_question == 4:
             st.image("assets/pickaxe_fixed.png", width=100, caption="すべてが なおった！")
             st.write("「やったーーー！全てが もとどおりになったよ！キミが いたから たすかった！」")
             st.write("「さんすう、がんばってくれてありがとう！」")
-            st.session_state.correct_count += 1
             
             # 最終結果表示
             st.divider()
-            st.success(f"🎉 <ruby>完成<rt>かんせい</rt></ruby>！")
+            st.markdown("""🎉 <ruby>完成<rt>かんせい</rt></ruby>！""", unsafe_allow_html=True)
             st.write(f"\n**{st.session_state.correct_count}/4** もん、 せいかい！")
             
             if st.button("もう いっかい プレイする"):
                 st.session_state.current_question = 1
                 st.session_state.correct_count = 0
                 st.session_state.answered = False
+                st.session_state.counted = False
                 st.rerun()
         else:
             st.error("❌ ざんねん！")
