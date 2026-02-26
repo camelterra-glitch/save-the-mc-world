@@ -1,5 +1,25 @@
 import streamlit as st
 
+# モバイル対応用のカスタムスタイル
+st.markdown("""
+<style>
+/* ボタンを幅いっぱいに広げる */
+.stButton>button {
+  width: 100% !important;
+}
+/* ラジオボタンの選択肢を縦並びに */
+.stRadio > div {
+  flex-direction: column !important;
+}
+/* カラムが自動で横並びになる場合、狭い画面では縦積みに */
+@media (max-width: 600px) {
+  .css-1d391kg, .css-1oebfis {
+    flex-direction: column !important;
+  }
+}
+</style>
+""", unsafe_allow_html=True)
+
 # セッション状態の初期化
 if "current_question" not in st.session_state:
     st.session_state.current_question = 1
