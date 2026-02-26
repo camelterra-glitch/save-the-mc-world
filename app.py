@@ -34,7 +34,7 @@ if st.session_state.current_question == 1:
     <div style='font-size: 1.5rem; line-height: 2.5rem;'>
       <ruby>羊<rt>ひつじ</rt></ruby>が <strong>15ひき</strong> います。<br>
       あとから <strong>8ぴき</strong> やってきました。<br>
-      <ruby>羊<rt>ひつじ</rt></ruby>は <ruby>全部<rt>ぜんぶ</rt></ruby>で <ruby>何引<rt>なんびき</rt></ruby> に なりましたか？
+      <ruby>羊<rt>ひつじ</rt></ruby>は <ruby>全部<rt>ぜんぶ</rt></ruby>で <ruby>何匹<rt>なんぴき</rt></ruby> に なりましたか？
     </div>
     """, unsafe_allow_html=True)
     
@@ -164,8 +164,8 @@ elif st.session_state.current_question == 4:
             
             # 最終結果表示
             st.divider()
-            st.success(f"### 🎉 <ruby>完成<rt>かんせい</rt></ruby>！")
-            st.write(f"**{st.session_state.correct_count}/4** もん、 せいかい！")
+            st.success(f"🎉 <ruby>完成<rt>かんせい</rt></ruby>！")
+            st.write(f"\n**{st.session_state.correct_count}/4** もん、 せいかい！")
             
             if st.button("もう <ruby>一回<rt>いっかい</rt></ruby> プレイする"):
                 st.session_state.current_question = 1
