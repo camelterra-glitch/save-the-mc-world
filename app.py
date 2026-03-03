@@ -3,18 +3,100 @@ import streamlit as st
 # モバイル対応用のカスタムスタイル
 st.markdown("""
 <style>
-/* ボタンを幅いっぱいに広げる */
+/* Minecraft テーマカラー定義 */
+:root {
+  --mc-dark-green: #2d5016;
+  --mc-orange: #ff9900;
+  --mc-yellow: #ffcc00;
+  --mc-dark-gray: #3a3a3a;
+  --mc-white: #ffffff;
+}
+
+/* タイトルスタイル */
+[data-testid="stTitle"] {
+  background: linear-gradient(135deg, #2d5016, #3a7a2d);
+  color: #ffcc00;
+  padding: 20px;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 問題タイトル（st.info） */
+.stMarkdown div p:has(+ [data-testid="stMarkdownContainer"]) {
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+}
+
+/* 情報ボックス（つるはしタイトル） */
+.stAlert > div {
+  background: url('data:image/svg+xml,<svg></svg>');
+  border-left: 5px solid #2d5016;
+}
+
+[data-testid="stException"] {
+  border-left: 5px solid #ff9900 !important;
+}
+
+/* 正解メッセージ */
+[data-testid="stAlert"][role="alert"] {
+  background-color: #d4f1d4 !important;
+  border-left: 5px solid #2d5016 !important;
+}
+
+/* 不正解メッセージ */
+[data-testid="stAlert"][role="status"] {
+  background-color: #ffe4cc !important;
+  border-left: 5px solid #ff9900 !important;
+}
+
+/* ボタンを幅いっぱい義テムカラー20pxパディング */
 .stButton>button {
   width: 100% !important;
+  background-color: #ff9900 !important;
+  color: #111111 !important;
+  font-weight: bold !important;
+  padding: 12px 20px !important;
+  font-size: 1.1em !important;
+  border-radius: 8px !important;
+  border: 2px solid #ffcc00 !important;
 }
+
+.stButton>button:hover {
+  background-color: #ffaa00 !important;
+  box-shadow: 0 4px 8px rgba(255, 153, 0, 0.4) !important;
+}
+
 /* ラジオボタンの選択肢を縦並びに */
 .stRadio > div {
   flex-direction: column !important;
 }
+
+/* ラジオボタンの選択肢間隔 */
+.stRadio > div > label {
+  margin-bottom: 12px !important;
+  padding: 10px 15px !important;
+  border-radius: 6px !important;
+  background-color: #f5f5f5 !important;
+  border-left: 4px solid #ffcc00 !important;
+}
+
+/* 答えの語文コンテナ */
+[data-testid="stMarkdownContainer"] {
+  line-height: 1.8 !important;
+}
+
+/* プログレスバー */
+[role="progressbar"] {
+  background-color: #2d5016 !important;
+}
+
 /* カラムが自動で横並びになる場合、狭い画面では縦積みに */
 @media (max-width: 600px) {
   .css-1d391kg, .css-1oebfis {
     flex-direction: column !important;
+  }
+  [data-testid="stTitle"] {
+    font-size: 1.5em !important;
   }
 }
 </style>
@@ -49,7 +131,7 @@ st.progress(st.session_state.current_question / 4)
 
 # クイズセクション
 if st.session_state.current_question == 1:
-    st.info("### 第一もん：つるはしを なおせ！")
+    st.markdown("""<div style='background: linear-gradient(135deg, #2d5016, #3a7a2d); color: #ffcc00; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.3em; font-weight: bold; margin-bottom: 15px;'>⛏️ 第一もん：つるはしを なおせ！</div>""", unsafe_allow_html=True)
     st.image("assets/pickaxe_broken.png", width=100, caption="ボロボロの つるはし")
     
     st.markdown("""
@@ -92,7 +174,7 @@ if st.session_state.current_question == 1:
                 st.rerun()
 
 elif st.session_state.current_question == 2:
-    st.info("### 第二もん：そばかすを なおせ！")
+    st.markdown("""<div style='background: linear-gradient(135deg, #2d5016, #3a7a2d); color: #ffcc00; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.3em; font-weight: bold; margin-bottom: 15px;'>🐟 第二もん：そばかすを なおせ！</div>""", unsafe_allow_html=True)
     
     st.markdown("""
     <div style='font-size: 1.5rem; line-height: 2.5rem;'>
@@ -131,7 +213,7 @@ elif st.session_state.current_question == 2:
                 st.rerun()
 
 elif st.session_state.current_question == 3:
-    st.info("### 第三もん：モンスターを たおせ！")
+    st.markdown("""<div style='background: linear-gradient(135deg, #2d5016, #3a7a2d); color: #ffcc00; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.3em; font-weight: bold; margin-bottom: 15px;'>🤮 第三もん：モンスターを たおせ！</div>""", unsafe_allow_html=True)
     
     st.markdown("""
     <div style='font-size: 1.5rem; line-height: 2.5rem;'>
@@ -169,7 +251,7 @@ elif st.session_state.current_question == 3:
                 st.rerun()
 
 elif st.session_state.current_question == 4:
-    st.info("### 第四もん：すべてを なおせ！")
+    st.markdown("""<div style='background: linear-gradient(135deg, #2d5016, #3a7a2d); color: #ffcc00; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.3em; font-weight: bold; margin-bottom: 15px;'>⚠️ 第四もん：すべてを なおせ！</div>""", unsafe_allow_html=True)
     
     st.markdown("""
     <div style='font-size: 1.5rem; line-height: 2.5rem;'>
