@@ -3,6 +3,9 @@ import streamlit as st
 # モバイル対応用のカスタムスタイル
 st.markdown("""
 <style>
+/* マイクラ風フォントのインポート */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 /* Minecraft テーマカラー定義 */
 :root {
   --mc-dark-green: #2d5016;
@@ -10,6 +13,12 @@ st.markdown("""
   --mc-yellow: #ffcc00;
   --mc-dark-gray: #3a3a3a;
   --mc-white: #ffffff;
+}
+
+/* マイクラ風フォント全体に適用 */
+* {
+  font-family: 'Roboto Mono', 'Courier New', monospace !important;
+  letter-spacing: 0.05em;
 }
 
 /* マイクラ風背景パターン */
@@ -40,6 +49,9 @@ html, body, [data-testid="stAppViewContainer"] {
   padding: 20px;
   border-radius: 10px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-family: 'Roboto Mono', 'Courier New', monospace !important;
+  letter-spacing: 0.1em !important;
+  font-weight: 700 !important;
 }
 
 /* 問題タイトル（st.info） */
@@ -76,10 +88,11 @@ html, body, [data-testid="stAppViewContainer"] {
   background-color: #ff9900 !important;
   color: #111111 !important;
   font-weight: bold !important;
-  padding: 12px 20px !important;
   font-size: 1.1em !important;
+  padding: 12px 20px !important;
   border-radius: 8px !important;
   border: 2px solid #ffcc00 !important;
+  letter-spacing: 0.08em !important;
 }
 
 .stButton>button:hover {
@@ -97,8 +110,21 @@ html, body, [data-testid="stAppViewContainer"] {
   margin-bottom: 12px !important;
   padding: 10px 15px !important;
   border-radius: 6px !important;
-  background-color: #f5f5f5 !important;
+  background-color: #4a4a4a !important;
   border-left: 4px solid #ffcc00 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* ラジオボタンホバーエフェクト */
+.stRadio > div > label:hover {
+  background-color: #5a5a5a !important;
+  box-shadow: 0 2px 6px rgba(255, 153, 0, 0.3) !important;
+}
+
+/* ラジオボタンチェック時のスタイル */
+.stRadio > div > label [data-testid="stCheckbox"] {
+  accent-color: #ffcc00 !important;
 }
 
 /* 答えの語文コンテナ */
