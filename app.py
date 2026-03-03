@@ -245,7 +245,7 @@ elif st.session_state.current_question == 2:
                 st.success("✨ せいかい（正解）！")
                 st.balloons()
                 st.image("assets/pickaxe_fixed.png", width=100, caption="そばかすが なおった！")
-                st.write("「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」")
+                st.markdown("「すごい！もう <ruby>一回<rt>いっかい</rt></ruby> なおった！」", unsafe_allow_html=True)
                 
                 if st.button("次の もんだいへ →", key="next2"):
                     st.session_state.correct_count += 1
