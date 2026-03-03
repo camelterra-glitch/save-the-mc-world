@@ -12,6 +12,27 @@ st.markdown("""
   --mc-white: #ffffff;
 }
 
+/* マイクラ風背景パターン */
+html, body, [data-testid="stAppViewContainer"] {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  background-attachment: fixed;
+}
+
+/* ブロック状のテクスチャ背景 */
+[data-testid="stAppViewContainer"]::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* タイトルスタイル */
 [data-testid="stTitle"] {
   background: linear-gradient(135deg, #2d5016, #3a7a2d);

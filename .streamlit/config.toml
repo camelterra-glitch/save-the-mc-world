@@ -2,10 +2,10 @@
 # See documentation: https://docs.streamlit.io/library/develop/configuration
 
 [theme]
-primaryColor = "#10B981"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F3F4F6"
-textColor = "#1F2937"
+primaryColor = "#ff9900"
+backgroundColor = "#2a2a2a"
+secondaryBackgroundColor = "#3a3a3a"
+textColor = "#ffffff"
 font = "sans serif"
 
 [client]
